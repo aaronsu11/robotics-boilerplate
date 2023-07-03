@@ -5,9 +5,14 @@ cd /home/ubuntu
 # runUpdateCommand
 apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::=''--force-confdef'' -o Dpkg::Options::=''--force-confold'' dist-upgrade -y
 
-# installAWSCLI
+# install AWS CLI 2
 apt-get install -y python3 python3-dev python3-pip
-pip3 install --upgrade awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+# print version
+aws --version
+
 # update_pip_and_boto
 pip3 install --upgrade pip boto3 requests
 
